@@ -22,9 +22,9 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Pong Game")
 
 # Game Rectangles
-ball = pygame.Rect(screen_width / 2 - 15, screen_height / 2 - 15, 30, 30)
-player = pygame.Rect(screen_width - 20, screen_height / 2 - 70, 10, 140)
-opponent = pygame.Rect(10, screen_height / 2 - 70, 10, 140)
+ball = pygame.Rect(screen_width / 2 - 15, screen_height / 2 - 15, 20, 20)
+player = pygame.Rect(screen_width - 15, screen_height / 2 - 50, 10, 100)
+opponent = pygame.Rect(10, screen_height / 2 - 50, 10, 100)
 
 background_color = pygame.Color("dim gray")
 alice_blue = (240, 248, 255)
@@ -54,6 +54,10 @@ while True:
         ball_speed_y *= -1
     # Horizontal or Y Axis
     if ball.left <= 0 or ball.right >= screen_width:
+        ball_speed_x *= -1
+
+    # Ball Collide
+    if ball.colliderect(player) or ball.colliderect(opponent):
         ball_speed_x *= -1
 
     # Visuals
