@@ -1,0 +1,15 @@
+Drawing / pygame.draw()
+
+pygame.draw(surface, color, rect)
+
+#THIS IS THE SURFACE OF SHAPE, RECTANGLE
+any_variable = pygame.display.set_mode((screen_width, screen_height))
+
+#THIS WILL REPRESENT color
+
+
+#RECT
+This will carry all properties of RECTANGLE or rect
+ball = pygame.Rect()
+player = pygame.Rect()
+opponent = pygame.Rect()
