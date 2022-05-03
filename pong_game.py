@@ -8,6 +8,24 @@ import pygame, sys
 # Updating
 
 
+def ball_animation():
+    global ball_speed_x, ball_speed_y
+    # Animations
+    ball.x += ball_speed_x
+    ball.y += ball_speed_y
+
+    # Vertical or X Axis
+    if ball.top <= 0 or ball.bottom >= screen_height:
+        ball_speed_y *= -1
+    # Horizontal or Y Axis
+    if ball.left <= 0 or ball.right >= screen_width:
+        ball_speed_x *= -1
+
+    # Ball Collide
+    if ball.colliderect(player) or ball.colliderect(opponent):
+        ball_speed_x *= -1
+
+
 # PS: LOOK UP PYGAME LIST OF LOCALS
 # ---------------------
 # General setup
@@ -44,21 +62,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-
-    # Animations
-    ball.x += ball_speed_x
-    ball.y += ball_speed_y
-
-    # Vertical or X Axis
-    if ball.top <= 0 or ball.bottom >= screen_height:
-        ball_speed_y *= -1
-    # Horizontal or Y Axis
-    if ball.left <= 0 or ball.right >= screen_width:
-        ball_speed_x *= -1
-
-    # Ball Collide
-    if ball.colliderect(player) or ball.colliderect(opponent):
-        ball_speed_x *= -1
+    ball_animation()
 
     # Visuals
     screen.fill(background_color)
