@@ -76,3 +76,5 @@ while True:
     # Updating the window
     pygame.display.flip()
     clock.tick(60)
+
+# 18:55
